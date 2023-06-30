@@ -9,7 +9,7 @@ export const PostBlock = ({ post }: { post: any }) => {
       <Link href={`/posts/${post.slug}`}>
         <div className="relative h-80 transition-all duration-200 ease-linear hover:-translate-y-[3px]">
           <Image
-            src={post.featuredImage.node.sourceUrl ?? defaultImage}
+            src={post.featuredImage?.node.sourceUrl ?? defaultImage}
             fill
             alt={post.title}
             className="absolute rounded-md h-full w-full object-cover"
