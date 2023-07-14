@@ -4,6 +4,8 @@ export async function fetchAPI(
   query = "",
   { variables }: Record<string, any> = {}
 ) {
+
+
   const headers = { "Content-Type": "application/json" };
 
   const res = await fetch(API_URL, {
@@ -16,6 +18,7 @@ export async function fetchAPI(
   });
 
   const json = await res.json();
+  console.log(json);
 
   if (json.errors) {
     console.error(json.errors);

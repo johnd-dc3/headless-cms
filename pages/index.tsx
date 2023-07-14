@@ -1,27 +1,52 @@
+
+
 import { GetStaticProps } from "next";
+import Link from 'next/link';
 
 import { Hero } from "@/components/Hero";
 import { PostBlock } from "@/components/PostBlock";
-import { getPosts } from "@/lib/service";
+import { getPostsByCPT } from "@/lib/service";
 
 export default function HomePage({ posts }: { posts: any }) {
+  console.log(posts);
   return (
     <>
       <Hero />
-      <div className="container mx-auto py-8">
-        <h3 className="text-xl">All my posts ({posts.length})</h3>
-        <div className="my-6 grid grid-flow-row grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-          {posts.map((post: any) => {
+      <section className="news">
+        <div className="inner">
+        <h2>
+            <span className="icon"><i className="far fa-file-alt"></i></span>
+            <span className="en">News</span>
+            <span className="ja">お知らせ画像あり</span>
+        </h2>
+
+        <ul className="nonstyle ul_flex">
+        {posts.map((post: any) => {
             return <PostBlock key={post.slug} post={post} />;
           })}
+        </ul>
+        <div className="btn_wrap">
+          <Link className="btn_link" href="/news/">一覧へ</Link>
         </div>
-      </div>
+    </div>
+</section>
     </>
   );
 }
 
+// export const getStaticProps: GetStaticProps = async () => {
+//   const posts = await getPosts(100); // retrieve first 100 posts
+
+//   return {
+//     props: {
+//       posts,
+//     },
+//     revalidate: 3600,
+//   };
+// };
+
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPosts(100); // retrieve first 100 posts
+  const posts = await getPostsByCPT(3); // retrieve first 3 posts
 
   return {
     props: {
