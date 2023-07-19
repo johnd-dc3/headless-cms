@@ -14,7 +14,7 @@ export async function getPageSlugs() {
   return slugs;
 }
 
-export async function getSinglePage(slug: string) {
+export async function getSinglePage(slug: string | string[] | undefined) {
 
   const data = await fetchAPI(
     `query getSinglePage {

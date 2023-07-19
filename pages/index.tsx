@@ -7,7 +7,7 @@ import { PostBlock } from "@/components/PostBlock";
 import { getPostsByCPT } from "@/lib/posts";
 
 export default function HomePage({ posts }: { posts: any }) {
-  console.log(posts);
+  // console.log(posts);
   return (
     <>
       <section className="news">

@@ -11,8 +11,6 @@ export const Nav = () => {
     setMenuOpen(!menuOpen);
   };
 
-  console.log(menuOpen);
-
   return (
     <>
       <header className="header">
