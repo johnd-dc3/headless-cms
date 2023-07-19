@@ -34,15 +34,15 @@ export const Nav = () => {
                     Home
                   </Link></li>
                 <li>
-                  <Link href="#" className="px-4">
-                    Blog
+                  <Link href="/access" className="px-4">
+                    Access
                   </Link></li>
                 <li>
-                  <Link href="#" className="px-4">
+                  <Link href="/about" className="px-4">
                     About
                   </Link></li>
                 <li>
-                  <Link href="#" className="px-4">
+                  <Link href="/contact" className="px-4">
                     Contact
                   </Link>
                 </li>
@@ -73,15 +73,15 @@ export const Nav = () => {
                 Home
               </Link></li>
             <li>
-              <Link href="#" className="px-4">
-                Blog
+              <Link href="/access" className="px-4">
+                Access
               </Link></li>
             <li>
-              <Link href="#" className="px-4">
+              <Link href="/about" className="px-4">
                 About
               </Link></li>
             <li>
-              <Link href="#" className="px-4">
+              <Link href="/contact" className="px-4">
                 Contact
               </Link>
             </li>

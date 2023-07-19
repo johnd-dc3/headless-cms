@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import Link from "next/link";
 
 import { PostBlock } from "@/components/PostBlock";
-import { getPostsByCPT } from "@/lib/service";
+import { getPostsByCPT } from "@/lib/posts";
 
 export default function HomePage({ posts }: { posts: any }) {
   console.log(posts);

@@ -51,8 +51,8 @@ export async function getPostsByCPT(first = 10) {
 }
 
 export async function getPostBySlug(slug: string) {
-    const data = await fetchAPI(
-      `query GetPost($id: ID = "") {
+  const data = await fetchAPI(
+    `query GetPost($id: ID = "") { 
       post(id: $id, idType: SLUG) {
         content
         featuredImage {
@@ -64,12 +64,12 @@ export async function getPostBySlug(slug: string) {
         title
       }
     }`,
-      {
-        variables: {
-          id: slug,
-        },
-      }
-    );
-  
-    return data?.post;
-  }
+    {
+      variables: {
+        id: slug,
+      },
+    }
+  );
+
+  return data?.post;
+}

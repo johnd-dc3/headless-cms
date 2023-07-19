@@ -1,7 +1,7 @@
 import { GetStaticProps } from "next";
 import { GetStaticPaths } from "next";
 
-import { getPosts, getPostBySlug } from "@/lib/service";
+import { getPosts, getPostBySlug } from "@/lib/posts";
 
 export default function PostDetails({ post }: { post: any }) {
   return (
