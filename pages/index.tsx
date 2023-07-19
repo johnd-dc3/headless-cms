@@ -1,5 +1,3 @@
-
-
 import { GetStaticProps } from "next";
 import Link from "next/link";
 
@@ -32,16 +30,6 @@ export default function HomePage({ posts }: { posts: any }) {
   );
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const posts = await getPosts(100); // retrieve first 100 posts
-
-//   return {
-//     props: {
-//       posts,
-//     },
-//     revalidate: 3600,
-//   };
-// };
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getPostsByCPT(3); // retrieve first 3 posts
