@@ -1,9 +1,8 @@
 
 
 import { GetStaticProps } from "next";
-import Link from 'next/link';
+import Link from "next/link";
 
-import { Hero } from "@/components/Hero";
 import { PostBlock } from "@/components/PostBlock";
 import { getPostsByCPT } from "@/lib/service";
 
@@ -11,25 +10,24 @@ export default function HomePage({ posts }: { posts: any }) {
   console.log(posts);
   return (
     <>
-      <Hero />
       <section className="news">
         <div className="inner">
-        <h2>
+          <h2>
             <span className="icon"><i className="far fa-file-alt"></i></span>
             <span className="en">News</span>
             <span className="ja">お知らせ画像あり</span>
-        </h2>
+          </h2>
 
-        <ul className="nonstyle ul_flex">
-        {posts.map((post: any) => {
-            return <PostBlock key={post.slug} post={post} />;
-          })}
-        </ul>
-        <div className="btn_wrap">
-          <Link className="btn_link" href="/news/">一覧へ</Link>
+          <ul className="nonstyle ul_flex">
+            {posts.map((post: any) => {
+              return <PostBlock key={post.slug} post={post} />;
+            })}
+          </ul>
+          <div className="btn_wrap">
+            <Link className="btn_link" href="/news/">一覧へ</Link>
+          </div>
         </div>
-    </div>
-</section>
+      </section>
     </>
   );
 }

@@ -4,10 +4,15 @@ import Image from "next/image";
 import defaultImage from "@/assets/images/default.jpg";
 
 export const PostBlock = ({ post }: { post: any }) => {
+  const date = new Date(post.date);
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const day = date.getDate();
+
   return (
-    <li className="post-block p-2 rounded-md">
+    <li>
       <Link href={`/posts/${post.slug}`}>
-        <div className="img relative h-80 transition-all duration-200 ease-linear hover:-translate-y-[3px]">
+        <div className="img">
           <Image
             src={post.featuredImage?.node.sourceUrl ?? defaultImage}
             fill
@@ -15,19 +20,15 @@ export const PostBlock = ({ post }: { post: any }) => {
             className="absolute rounded-md h-full w-full object-cover"
           />
         </div>
-      </Link>
-      <Link href={`/posts/${post.slug}`} className="post-content my-4">
-        <h3 className="title text-2xl py-4">{post.title}</h3>
-        <div
-          className="italic"
-          dangerouslySetInnerHTML={{ __html: post.excerpt }}
-        ></div>
-      </Link>
-      <div className="date">
-        <time>
-{/* Insert datte as Y年m月d日 */}
-        </time>
+        <div className="txt">
+          <h3 className="title">{post.title}</h3>
+          <div className="date">
+            <time>
+              {year}年{month}月{day}日
+            </time>
+          </div>
         </div>
+      </Link>
     </li>
   );
 };

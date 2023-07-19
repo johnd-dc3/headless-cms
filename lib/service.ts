@@ -36,6 +36,7 @@ export async function getPostsByCPT(first = 10) {
           id
           title
           slug
+          date
         }
       }
     }`,

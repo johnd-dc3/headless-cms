@@ -18,7 +18,6 @@ export async function fetchAPI(
   });
 
   const json = await res.json();
-  console.log(json);
 
   if (json.errors) {
     console.error(json.errors);
