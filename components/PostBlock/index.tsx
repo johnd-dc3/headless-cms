@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import defaultImage from "@/assets/images/default.jpg";
 
-export const PostBlock = ({ post }: { post: any }) => {
+export const PostBlock = ({ post, postType }: { post: any, postType: any }) => {
   const date = new Date(post.date);
   const month = date.getMonth() + 1;
   const year = date.getFullYear();
@@ -11,11 +11,12 @@ export const PostBlock = ({ post }: { post: any }) => {
 
   return (
     <li>
-      <Link href={`/posts/${post.slug}`}>
+      <Link href={`/${postType}/${post.slug}`}>
         <div className="img">
           <Image
             src={post.featuredImage?.node.sourceUrl ?? defaultImage}
-            fill
+            width={350}
+            height={350}
             alt={post.title}
             className="absolute rounded-md h-full w-full object-cover"
           />

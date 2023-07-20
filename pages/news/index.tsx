@@ -1,9 +1,9 @@
 import { PostBlock } from "@/components/PostBlock";
 import { GetStaticProps } from "next";
-import { getPosts } from "@/lib/posts";
+import { getPostsByCPT } from "@/lib/posts";
 
 export default function BlogHome({ posts }: { posts: any }) {
-  const postType: string = "posts";
+  const postType = "news";
 
   return (
     <>
@@ -23,7 +23,7 @@ export default function BlogHome({ posts }: { posts: any }) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getPosts(100); // retrieve first 100 posts
+  const posts = await getPostsByCPT(100); // retrieve first 100 posts
 
   return {
     props: {

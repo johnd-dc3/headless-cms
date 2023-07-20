@@ -50,6 +50,32 @@ export async function getPostsByCPT(first = 10) {
   return data?.newsPlural?.nodes;
 }
 
+export async function getCustomPostBySlug(slug: string) {
+
+  const data = await fetchAPI(
+    `query GetNewsPost($id: ID = "") {
+      newsSingular(id: $id, idType: SLUG) {
+        content
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        slug
+        title
+      }
+    }`,
+    {
+      variables: {
+        id: slug,
+      },
+    }
+  );
+
+  return data?.newsSingular;
+}
+
+
 export async function getPostBySlug(slug: string) {
   const data = await fetchAPI(
     `query GetPost($id: ID = "") { 

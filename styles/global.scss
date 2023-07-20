@@ -968,15 +968,15 @@ header {
 // /* --------------------------------
 // common components
 // --------------------------------- */
-// .main {
-//   margin-top: 122px;
-//   @include mq(sm) {
-//     margin-top: 70px;
-//   }
-// }
-// .bg {
-//   background-color: $bg_color;
-// }
+main {
+  margin-top: 122px;
+  @include mq(sm) {
+    margin-top: 70px;
+  }
+}
+.bg {
+  background-color: $bg_color;
+}
 
 // /* --------------------------------
 // index components

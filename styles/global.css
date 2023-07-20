@@ -693,6 +693,19 @@ header.is_fixed div.headerflex {
   margin-bottom: 12px;
 }
 
+main {
+  margin-top: 122px;
+}
+@media screen and (max-width: 767px) {
+  main {
+    margin-top: 70px;
+  }
+}
+
+.bg {
+  background-color: #f5f4ef;
+}
+
 body div.topslide {
   position: relative;
 }
