@@ -5,10 +5,10 @@ import Image from "next/image";
 import { PostBlock } from "@/components/PostBlock";
 import { getPostsByCPT } from "@/lib/posts";
 import getBanners from "@/lib/banners";
+import { useState, useEffect } from "react";
 
 export default function HomePage({ posts, banners }: { posts: any, banners: any }) {
   const postType = "news";
-  console.log(banners);
 
   return (
     <>

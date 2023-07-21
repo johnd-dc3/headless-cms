@@ -295,7 +295,6 @@ ul.ul_flex li a div.img {
 ul.ul_flex li a div.img img {
   display: block;
   width: 100%;
-  vertical-align: bottom;
   -o-object-fit: cover;
      object-fit: cover;
   transform: scale(1);
@@ -475,7 +474,6 @@ header div.headerflex div.left h1 a {
 }
 header div.headerflex div.left h1 a img {
   display: block;
-  vertical-align: bottom;
 }
 header div.headerflex div.right {
   width: calc(100% - 15rem);
@@ -691,6 +689,98 @@ header.is_fixed div.headerflex {
 }
 .navigation nav.gnav > ul > li ul li {
   margin-bottom: 12px;
+}
+
+footer {
+  position: relative;
+  padding: 60px;
+  color: #fff;
+  background: #4133b9;
+}
+footer div.footerflex {
+  display: flex;
+}
+@media screen and (max-width: 767px) {
+  footer div.footerflex {
+    display: block;
+  }
+}
+footer div.footerflex div.left {
+  width: 300px;
+}
+@media screen and (max-width: 767px) {
+  footer div.footerflex div.left {
+    width: 100%;
+  }
+}
+footer div.footerflex div.left p.add span {
+  margin-right: 0.5em;
+}
+@media screen and (max-width: 767px) {
+  footer div.footerflex div.left p {
+    font-size: 0.9em;
+  }
+}
+footer div.footerflex div.right {
+  width: calc(100% - 300px);
+  padding-left: 30px;
+  text-align: right;
+}
+@media screen and (max-width: 767px) {
+  footer div.footerflex div.right {
+    width: 100%;
+    padding-left: 0;
+    text-align: left;
+  }
+}
+footer div.footerflex div.right ul {
+  margin-bottom: 0.5em;
+}
+@media screen and (max-width: 767px) {
+  footer div.footerflex div.right ul {
+    display: none;
+  }
+}
+footer div.footerflex div.right ul li {
+  display: inline-block;
+  margin-left: 1em;
+}
+footer div.footerflex div.right ul li a {
+  color: #fff;
+}
+footer div.footerflex div.right p.copy {
+  margin-top: 2em;
+  font-size: 0.8em;
+}
+
+div.page_top {
+  width: 60px;
+  height: 60px;
+  line-height: 56px;
+  position: fixed;
+  right: 30px;
+  left: 92%;
+  bottom: 15px;
+}
+div.page_top::after {
+  content: "\f0d8";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-family: "Font Awesome 5 Free";
+  text-align: center;
+  font-weight: bold;
+  color: #4133b9;
+  font-size: 2em;
+  background: #fff;
+  border: 2px solid #4133b9;
+  border-radius: 30px;
+  transition: 0.2s;
+}
+div.page_top:hover::after {
+  color: #fff;
+  background: #4133b9;
+  transition: 0.2s;
 }
 
 main {

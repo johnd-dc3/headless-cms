@@ -1,26 +1,83 @@
 import Link from "next/link";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+import logo from "../../assets/images/logo.png";
 
 export const Footer = () => {
+  const [pageTopBtn, setPageTopBtn] = useState(false);
+  const [footerHeight, setFooterHeight] = useState(0);
+
+  useEffect(() => {
+    const footer: HTMLElement | null = document.querySelector("footer");
+    setFooterHeight(footer.offsetHeight);
+
+    const handleScroll = () => {
+
+      const documentHeight = Math.max(
+        document.body.scrollHeight,
+        document.body.offsetHeight,
+        document.documentElement.clientHeight,
+        document.documentElement.scrollHeight,
+        document.documentElement.offsetHeight
+      );
+
+      const windowHeight = window.innerHeight; // Height of the viewport
+      const scrollY = window.scrollY; // Vertical scroll position
+      const visibleHeight = windowHeight + scrollY;
+
+      if (documentHeight - visibleHeight + 45 <= footerHeight) {
+        setPageTopBtn(true);
+      } else {
+        setPageTopBtn(false);
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+
+  }, [footerHeight]);
+
   return (
-    <footer className="container mx-auto">
-      <div className="text-center border-t py-8">
-        <h3 className="text-xl">Important Links</h3>
-        <div className="flex items-center justify-center my-4 underline">
-          <Link href="https://dev.to/jeffsalive" className="px-4">
-            Dev.to (Jeffrey)
-          </Link>
-          <Link href="https://twitter.com/JeffreySunny1" className="px-4">
-            Twitter
-          </Link>
-          <Link href="https://linkedin.com/in/jeffsalive" className="px-4">
-            LinkedIn
-          </Link>
-          <Link href="https://jeffreynwankwo.com" className="px-4">
-            Website
-          </Link>
+    <>
+      <footer>
+        <div className="footerflex">
+          <div className="left">
+            <Link href="#">
+              <Image src={logo} alt="">
+              </Image></Link>
+            <p className="add"><span className="postcode">〒990-0000</span>山形県山形市</p>
+            <p className="tel">TEL.000-0000-0000</p>
+          </div>
+          <div className="right">
+            <nav className="gnav">
+              <ul className="nonstyle footer_ul">
+                <li></li>
+              </ul>
+            </nav>
+            <p className="copy">&copy;&nbsp;2022- .</p>
+          </div>
         </div>
-        <small>Jeffrey &copy; {new Date().getFullYear()}</small>
-      </div>
-    </footer>
+
+      </footer>
+      <div
+        className={`page_top ${pageTopBtn && "fix-btn-to-footer"}`}
+        onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }}
+      ></div>
+      <style jsx>{`
+        .fix-btn-to-footer {
+          position: absolute;
+          bottom: calc(${footerHeight}px - 30px);
+        }
+      `}</style>
+
+
+    </>
   );
 };
