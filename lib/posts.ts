@@ -12,8 +12,10 @@ export async function getPosts(first = 10) {
                 sourceUrl
               }
             }
-            slug
+            id
             title
+            slug
+            date
           }
         }
       }`,
